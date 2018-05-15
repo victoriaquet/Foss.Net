@@ -89,7 +89,10 @@ La base de datos tiene la siguiente composición:
 
 :-------------------------------------------------------------------------------------------------;
 
-En la aplicación actualmente se pueden utilizar los métodos CRUD para cada una de las tablas.
+Pueden emplearse los siguientes métodos para acceder a la informacion por la API:
+> Métodos CRUD habilitados para cada una de las entidades
+> Obtener Vuelos Por fecha de Salida (GetCommercialFlightToDeportDate(DateTime date))
+> Obtener Vuelos Por ciudad de Origen y ciudad de Partida (GetCommercialFlightToOriginDestination)
 
 ---
 
