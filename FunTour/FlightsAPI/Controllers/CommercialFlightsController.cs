@@ -51,7 +51,41 @@ namespace FlightsAPI.Controllers
             return Ok(commercialFlight);
         }
 
-        //Obtener Vuelos por 
+       //Obtener Vuelos por Fecha
+
+        [ResponseType(typeof(CommercialFlight))]
+        public IHttpActionResult GetCommercialFlightToDeportDate(DateTime date)
+        {
+            List<CommercialFlight> CommercialFlight = db.CommercialFlights
+                                                        .Where(p => p.Deport == date).ToList();
+
+            if (CommercialFlight == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(CommercialFlight);
+        }
+
+
+        //Obtener Vuelos por Destino/Partida
+
+
+        [ResponseType(typeof(CommercialFlight))]
+        public IHttpActionResult GetCommercialFlightToOriginDestination(string origin, string destination)
+        {
+            List<CommercialFlight> CommercialFlight = db.CommercialFlights
+                                                        .Where(p => p.Flight_To == origin
+                                                        && p.Flight_From == destination).ToList();
+
+            if (CommercialFlight == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(CommercialFlight);
+        }
+
 
         // PUT: api/CommercialFlights/5
         [ResponseType(typeof(void))]
